@@ -1,37 +1,42 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: <%= ENV["POSTGRES_DB"] %>
+  username: <%= ENV["POSTGRES_USER"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
+  host: <%= ENV["POSTGRESS_HOST"] %>
+  port: <%= ENV["POSTGRESS_PORT"] %>
 
 development:
   <<: *default
-  host: db
-  database: github_search_engine_development
-  username: postgres
-  password: password
-  url: postgresql://postgres@db/github_search_engine_development
+  # host: db
+  # database: github_search_engine_development
+  # username: postgres
+  # password: password
+  # url: postgresql://postgres@db/github_search_engine_development
   cache_store: redis_cache_store
   redis_cache_store:
     url: redis://localhost:6379/0
 
 test:
   <<: *default
-  host: db
-  database: github_search_engine_test
-  username: postgres
-  password: password
-  url: postgresql://postgres@db/github_search_engine_test
+  # host: db
+  # database: github_search_engine_test
+  # username: postgres
+  # password: password
+  # url: postgresql://postgres@db/github_search_engine_test
   cache_store: redis_cache_store
   redis_cache_store:
     url: redis://localhost:6379/0
 
 production:
   <<: *default
-  host: db
-  database: github_search_engine_production
-  username: postgres
-  password: password
-  url: postgresql://postgres@db/github_search_engine_production
+  # host: db
+  # database: github_search_engine_production
+  # username: postgres
+  # password: password
+  # url: postgresql://postgres@db/github_search_engine_production
   cache_store: redis_cache_store
   redis_cache_store:
     url: redis://mahmoud:(mahmoud)@github_search_engine:6379/0
