@@ -22,13 +22,13 @@ For APIs Doc using Rswag Swagger, once you set up the project, Follow this link:
 
 
 
-rails g controller CreateUsers
-rails g controller CreateRepositories
-rails g controller CreateCommits
-rails g controller CreateLanguages
-rails g controller CreateTags
-rails g controller CreateSearches
-rails g controller CreateSearchTerms
-rails g controller CreateFilters
-rails g controller CreateFilterValues
-rails g controller CreateSortingOptions
+rails g controller Users
+rails g controller Repositories
+rails g controller Commits
+rails g controller Languages
+rails g controller Tags
+rails g controller Searches
+rails g controller SearchTerms
+rails g controller Filters
+rails g controller FilterValues
+rails g controller SortingOptions
