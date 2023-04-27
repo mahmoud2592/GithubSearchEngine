@@ -1,25 +1,21 @@
-# README
+Requirments:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+    Install Docker & Docker-compose
 
-Things you may want to cover:
+In the project directory, Run:
 
-* Ruby version
+    docker-compose build
 
-* System dependencies
+    docker-compose up
 
-* Configuration
+Access docker's application container using it's id by Run:
 
-* Database creation
+    docker ps
 
-* Database initialization
+After getting it's id to access it, Run :
 
-* How to run the test suite
+    sudo docker exec -it YOUR_CONTAINER_ID /bin/sh
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# GithubSearchEngine
+    Note: replace YOUR_CONTAINER_ID with your container application id
+    
+For APIs Doc using Rswag Swagger, once you set up the project, Follow this link: http://localhost:3000/api-docs/index.html
