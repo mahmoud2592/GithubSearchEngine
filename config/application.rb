@@ -12,6 +12,9 @@ require "action_mailbox/engine"
 require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
+require 'rack/attack'
+require "rails-i18n"
+require 'http_errors'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -32,6 +35,11 @@ module GithubSearchEngine
     end
 
     config.middleware.use Rack::Attack
+
+    # Use FactoryBot for fixture replacement
+    config.generators do |g|
+      g.fixture_replacement :factory_bot, dir: "spec/factories"
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #
