@@ -19,17 +19,3 @@ After getting it's id to access it, Run :
     Note: replace YOUR_CONTAINER_ID with your container application id
 
 For APIs Doc using Rswag Swagger, once you set up the project, Follow this link: http://localhost:3000/api-docs/index.html
-
-
-
-rails g controller Users index show --skip-assets --skip-helper
-rails g controller Repositories index show --skip-assets --skip-helper
-rails g controller Commits index show --skip-assets --skip-helper
-rails g controller Languages index show --skip-assets --skip-helper
-rails g controller Tags index show --skip-assets --skip-helper
-
-rails g controller Searches create index show --skip-assets --skip-helper
-rails g controller SearchTerms create index show --skip-assets --skip-helper --force
-rails g controller Filters index create show --skip-assets --skip-helper --force
-rails g controller FilterValues create index show --skip-assets --skip-helper --force
-rails g controller SortingOptions create index show --skip-assets --skip-helper --force
