@@ -22,13 +22,14 @@ For APIs Doc using Rswag Swagger, once you set up the project, Follow this link:
 
 
 
-rails g controller Users
-rails g controller Repositories
-rails g controller Commits
-rails g controller Languages
-rails g controller Tags
-rails g controller Searches
-rails g controller SearchTerms
-rails g controller Filters
-rails g controller FilterValues
-rails g controller SortingOptions
+rails g controller Users index show --skip-assets --skip-helper
+rails g controller Repositories index show --skip-assets --skip-helper
+rails g controller Commits index show --skip-assets --skip-helper
+rails g controller Languages index show --skip-assets --skip-helper
+rails g controller Tags index show --skip-assets --skip-helper
+
+rails g controller Searches create index show --skip-assets --skip-helper
+rails g controller SearchTerms create index show --skip-assets --skip-helper --force
+rails g controller Filters index create show --skip-assets --skip-helper --force
+rails g controller FilterValues create index show --skip-assets --skip-helper --force
+rails g controller SortingOptions create index show --skip-assets --skip-helper --force
