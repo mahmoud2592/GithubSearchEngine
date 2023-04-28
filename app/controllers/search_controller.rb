@@ -9,7 +9,6 @@ class SearchController < ApplicationController
 
   def create
     @search = Search.new(search_params)
-    # puts @search.errors.full_messages
     if @search.save
       redirect_to @search
     else

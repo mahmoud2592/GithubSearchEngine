@@ -4,10 +4,4 @@ class Filter < ApplicationRecord
 
   validates :name, presence: true
 
-  # Add an index to the name column
-  # index :name
-
-  # scope :with_filter_values, -> { includes(:filter_values) }
-end
-
 

@@ -25,7 +25,8 @@ class Search < ApplicationRecord
   end
 
   def available_filters
-    Filter.select(:id, :name).map(&:attributes)
+    # Filter.select(:id, :name).map(&:attributes)
+    Filter.all.map { |f| { id: f.id, name: f.name } }
   end
 
   def available_sorting_options
