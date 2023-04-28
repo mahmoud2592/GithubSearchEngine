@@ -25,26 +25,7 @@ services:
     depends_on:
       - db
       - migration
-      - redis
-      - elasticsearch
     command: ["rails", "server", "-b", "0.0.0.0"]
-  redis:
-    image: redis
-    volumes:
-      - redis:/data
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
-    container_name: elasticsearch
-    environment:
-      - discovery.type=single-node
-    expose:
-      - '9200'
-      - '9300'
-    ports:
-      - '9200:9200'
-      - '9300:9300'
-    networks:
-      - app-network
 
   migration:
     build: .
@@ -61,7 +42,6 @@ services:
       - db
 volumes:
   postgres:
-  redis:
 networks:
   app-network:
     driver: bridge

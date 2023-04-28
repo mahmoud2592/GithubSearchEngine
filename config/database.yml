@@ -10,33 +10,11 @@ default: &default
 
 development:
   <<: *default
-  # host: db
-  # database: github_search_engine_development
-  # username: postgres
-  # password: password
-  # url: postgresql://postgres@db/github_search_engine_development
-  cache_store: redis_cache_store
-  redis_cache_store:
-    url: redis://localhost:6379/0
+
 
 test:
   <<: *default
-  # host: db
-  # database: github_search_engine_test
-  # username: postgres
-  # password: password
-  # url: postgresql://postgres@db/github_search_engine_test
-  cache_store: redis_cache_store
-  redis_cache_store:
-    url: redis://localhost:6379/0
+
 
 production:
   <<: *default
-  # host: db
-  # database: github_search_engine_production
-  # username: postgres
-  # password: password
-  # url: postgresql://postgres@db/github_search_engine_production
-  cache_store: redis_cache_store
-  redis_cache_store:
-    url: redis://mahmoud:(mahmoud)@github_search_engine:6379/0
