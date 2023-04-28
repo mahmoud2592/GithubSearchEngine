@@ -1,7 +1,9 @@
 class CreateSearches < ActiveRecord::Migration[7.0]
   def change
     create_table :searches do |t|
-      t.references :user, null: false, foreign_key: true
+      # t.references :user, null: false, foreign_key: true
+      t.string :name
+      t.string :description
       t.string :keyword
       t.datetime :timestamp
       t.integer :total_count

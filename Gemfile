@@ -50,8 +50,6 @@ gem 'rails-i18n'
 # Hnadle HTTP REST APIs Errors
 gem 'http_errors'
 
-# Gems for Caching
-gem 'redis'
 
 # Use the 'pg_search' gem to enable full-text search capabilities in your Rails application
 gem 'pg_search'
@@ -60,10 +58,6 @@ gem 'has_scope'
 
 # Rate limiting and request throttling
 gem 'rack-attack', '~> 6.5'
-
-# Elasticsearch is a distributed, RESTful search and analytics engine
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"

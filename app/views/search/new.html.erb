@@ -1,0 +1,25 @@
+<h1>New Search</h1>
+
+<%= form_with model: @search, url:search_index_path(@search), local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+
+  <%= form.label :keyword %>
+  <%= form.text_field :keyword %>
+
+  <h2>Filters</h2>
+  <%= render partial: 'filters', locals: { filters: @filters } %>
+
+  <h2>Sorting Options</h2>
+  <%= render partial: 'sorting_options', locals: { sorting_options: @sorting_options } %>
+
+  <%= form.submit %>
+<% end %>
+
+<h2>Popular Search Terms</h2>
+<% @popular_search_terms.each do |term| %>
+  <%= link_to term, search_path(keyword: term) %>
+<% end %>
