@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_27_221930) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_27_235306) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_27_221930) do
     t.datetime "system_updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
   end
 
+  create_table "search_filters", force: :cascade do |t|
+    t.bigint "search_id", null: false
+    t.bigint "filter_id", null: false
+    t.bigint "filter_value_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["filter_id"], name: "index_search_filters_on_filter_id"
+    t.index ["filter_value_id"], name: "index_search_filters_on_filter_value_id"
+    t.index ["search_id"], name: "index_search_filters_on_search_id"
+  end
+
+  create_table "search_sorting_options", force: :cascade do |t|
+    t.bigint "search_id", null: false
+    t.bigint "sorting_option_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["search_id"], name: "index_search_sorting_options_on_search_id"
+    t.index ["sorting_option_id"], name: "index_search_sorting_options_on_sorting_option_id"
+  end
+
   create_table "search_terms", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "term"
@@ -134,6 +154,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_27_221930) do
 
   add_foreign_key "commits", "repositories"
   add_foreign_key "filter_values", "filters"
+  add_foreign_key "search_filters", "filter_values"
+  add_foreign_key "search_filters", "filters"
+  add_foreign_key "search_filters", "searches"
+  add_foreign_key "search_sorting_options", "searches"
+  add_foreign_key "search_sorting_options", "sorting_options"
   add_foreign_key "search_terms", "users"
   add_foreign_key "searches", "users"
 end
