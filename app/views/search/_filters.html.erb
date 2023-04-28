@@ -1,6 +1,6 @@
 <% filters.each do |filter| %>
   <div>
-    <%= check_box_tag 'search[filter_ids][]', filter.id %>
-    <%= label_tag "search_filter_#{filter.id}", filter.name %>
+    <%= check_box_tag 'search[filter_ids][]', filter['id'] %>
+    <%= label_tag "search_filter_#{filter['id']}", filter['name'] %>
   </div>
 <% end %>
