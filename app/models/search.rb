@@ -26,12 +26,12 @@ class Search < ApplicationRecord
 
   def available_filters
     Filter.with_filter_values.map do |f|
-      { name: f.name, values: f.filter_values.map(&:value) }
+      { id: f.id, name: f.name, values: f.filter_values.map(&:value) }
     end
   end
 
   def available_sorting_options
-    SortingOption.pluck(:name)
+    SortingOption.all.map { |sorting_option| { id: sorting_option.id, name: sorting_option.name } }
   end
 
   def popular_search_terms(limit)
