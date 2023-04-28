@@ -1,7 +1,6 @@
 class SearchController < ApplicationController
   def new
     @search = Search.new
-    puts @search.inspect # Add this line to check @search object
     @filters = @search.available_filters
     @sorting_options = @search.available_sorting_options
     @popular_search_terms = @search.popular_search_terms(10)
@@ -10,7 +9,6 @@ class SearchController < ApplicationController
 
   def create
     @search = Search.new(search_params)
-    puts @search.id
 
     if @search.save
       redirect_to @search
