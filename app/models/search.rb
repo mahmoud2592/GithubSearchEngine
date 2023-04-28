@@ -17,12 +17,13 @@ class Search < ApplicationRecord
   end
 
   def sort
-    sorting_options.join(',')
+    sorting_options.pluck(:name).join(',')
   end
 
   def search_results(page)
     GithubSearchService.search_repositories(query, sort, page)
   end
+
 
   def available_filters
     Filter.with_filter_values.map do |f|
@@ -97,7 +98,7 @@ class Search < ApplicationRecord
       query += " #{filter.name}:#{filter_values.join(',')}" unless filter_values.empty?
     end
 
-    query += " sort:#{sorting_options.join(',')}" unless sorting_options.empty?
+    query += " sort:#{sort}" unless sorting_options.empty?
 
     query
   end
