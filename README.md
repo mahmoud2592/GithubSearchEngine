@@ -18,4 +18,3 @@ After getting it's id to access it, Run :
 
     Note: replace YOUR_CONTAINER_ID with your container application id
 
-For APIs Doc using Rswag Swagger, once you set up the project, Follow this link: http://localhost:3000/api-docs/index.html
