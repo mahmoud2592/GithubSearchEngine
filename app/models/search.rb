@@ -24,11 +24,8 @@ class Search < ApplicationRecord
     GithubSearchService.search_repositories(query, sort, page)
   end
 
-
   def available_filters
-    Filter.with_filter_values.map do |f|
-      { id: f.id, name: f.name, values: f.filter_values.map(&:value) }
-    end
+    Filter.select(:id, :name).map(&:attributes)
   end
 
   def available_sorting_options
