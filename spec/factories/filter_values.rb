@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :filter_value do
-    filter { nil }
+    filter
     value { "MyString" }
   end
 end
