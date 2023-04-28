@@ -4,9 +4,8 @@ class SearchSortingOption < ApplicationRecord
   belongs_to :sorting_option
 
   validates :count, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :name, presence: true
-  validates :value, presence: true
-  validates :label, presence: true
+  # validates :value, presence: true
+  # validates :label, presence: true
 
   def increment_count
     update(count: count + 1)
